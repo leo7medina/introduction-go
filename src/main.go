@@ -25,4 +25,37 @@ func main() {
 	var d bool
 
 	fmt.Println(a, b, c, d)
+
+	//Area cuadrado
+	const baseCuadrado = 10
+	areaCuadrado := baseCuadrado * baseCuadrado
+
+	fmt.Println("Area cuadrado:", areaCuadrado)
+
+	// rectacgulo
+
+	baseRectangulo := 20
+	alturaRectangulo := 10
+
+	areaRectangulo := baseRectangulo * alturaRectangulo
+
+	fmt.Println("Area rectangulo:", areaRectangulo)
+
+	// Circulo: area circulo = pi por radio al cuadrado
+	const PI_LEO float64 = 3.14
+	var radioCirculo float64 = 10
+
+	areaCiruclo := PI_LEO * (radioCirculo * radioCirculo)
+
+	fmt.Println("Area ciruclo:", areaCiruclo)
+
+	// trapecio
+
+	var base1 float64 = 6
+	var base2 float64 = 15
+	var alturaTrapecio float64 = 25
+
+	areaTrapecio := ((base1 + base2) * alturaTrapecio) / 2
+
+	fmt.Println("Area trapecio:", areaTrapecio)
 }
