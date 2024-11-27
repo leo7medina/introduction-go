@@ -14,7 +14,8 @@ func main() {
 	// fnUsoFunciones()
 	// fnUsoCiclos()
 	// fnCondicionalIf()
-	fnUsoSwitch()
+	// fnUsoSwitch()
+	fnUsoKeyWords()
 
 }
 
@@ -325,4 +326,21 @@ func contadorVocales(palabra string) (int, int, int, int, int) {
 		}
 	}
 	return conta, conte, conti, conto, contu
+}
+
+func fnUsoKeyWords() {
+	// Continue y break
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+		if i == 4 {
+			fmt.Println("Es 4")
+			continue
+		}
+
+		// Break
+		if i == 4 {
+			fmt.Println("Break")
+			break
+		}
+	}
 }
