@@ -12,7 +12,8 @@ func main() {
 	// fnTiposDatosPrimitivos()
 	// fnPaqueteFmt()
 	// fnUsoFunciones()
-	fnUsoCiclos()
+	// fnUsoCiclos()
+	fnCondicionalIf()
 
 }
 
@@ -140,19 +141,19 @@ func fnPaqueteFmt() {
 func fnUsoFunciones() {
 	fmt.Println("")
 	fmt.Println("USO FUNCIONES")
-	fmt.Printf("Circulo %.2f \n", fnAreaCirculo(2))
-	fmt.Printf("Rectangulo %.2f \n", fnAreaRectangulo(5, 10))
-	fmt.Printf("Trapezoide %.2f \n", fnAreaTrapezoide(10, 5, 3))
+	fmt.Printf("Circulo %.2f \n", areaCirculo(2))
+	fmt.Printf("Rectangulo %.2f \n", areaRectangulo(5, 10))
+	fmt.Printf("Trapezoide %.2f \n", areaTrapezoide(10, 5, 3))
 }
 
-func fnAreaCirculo(radio float64) float64 {
+func areaCirculo(radio float64) float64 {
 	return math.Pi * radio * radio
 }
-func fnAreaRectangulo(base float64, altura float64) float64 {
+func areaRectangulo(base float64, altura float64) float64 {
 	return base * altura
 }
 
-func fnAreaTrapezoide(B float64, b float64, h float64) float64 {
+func areaTrapezoide(B float64, b float64, h float64) float64 {
 	return h * (B + b) / 2
 }
 
@@ -259,4 +260,28 @@ func condicion(i int) bool {
 	fmt.Println("condicion i")
 
 	return (i < 10)
+}
+
+func fnCondicionalIf() {
+	parOImpar(13)
+	parOImpar(10)
+
+	validateUser("admin", "admin123")
+	validateUser("leo", "admin123")
+}
+
+func parOImpar(numero int) {
+	if numero%2 == 0 {
+		fmt.Printf("El número %d es par \n", numero)
+	} else {
+		fmt.Printf("El número %d es impar\n", numero)
+	}
+}
+
+func validateUser(user string, password string) {
+	if user == "admin" && password == "admin123" {
+		fmt.Printf("Acceso permitido \n")
+	} else {
+		fmt.Printf("Acceso denegado \n")
+	}
 }
