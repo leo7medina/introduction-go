@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	pk "introduction-go/src/pkstructs"
 	"math"
 	"strings"
 )
@@ -19,7 +20,9 @@ func main() {
 	// fnUsoKeyWords()
 	// fnUsoArraysAndSlices()
 	// fnUsoRecorridoSlicesConRange()
-	fnLlaveValorConMaps()
+	// fnLlaveValorConMaps()
+	// fnUsoStructs()
+	fnUsoModificadoresAcceso()
 
 }
 
@@ -445,4 +448,55 @@ func recorrerMap(mapDemo map[string]int) {
 	for key, value := range mapDemo {
 		fmt.Printf("Llave: %s - Valor: %d \n", key, value)
 	}
+}
+
+type car struct {
+	brand   string
+	year    int
+	seating int
+	color   string
+	owner   string
+}
+
+func fnUsoStructs() {
+	fmt.Println()
+	fmt.Println("====================================================")
+	fmt.Println("Structs: forma de hacer clases en Go")
+	fmt.Println("====================================================")
+	fmt.Println()
+
+	fmt.Println("Primera forma de instanciación:::")
+	fmt.Println("---------------------------------")
+	fmt.Println()
+
+	myCar := car{brand: "Renault", year: 2021}
+	fmt.Println(myCar)
+
+	myCar2 := car{brand: "Toyota", year: 2018, seating: 10, color: "Rojo", owner: "Eliaz Bobadilla"}
+	fmt.Println("Los Datos de mi auto son:", myCar2)
+
+	fmt.Println("Segunda forma de instanciación:::")
+	fmt.Println("---------------------------------")
+	fmt.Println()
+
+	var otherCar car
+	otherCar.brand = "Chevrolet"
+	fmt.Println(otherCar)
+	//Si un atributo del struct no se inicializa, toma un Zero Value, y por lo tanto se imprime así lo referente al año:
+	fmt.Println()
+
+}
+
+func fnUsoModificadoresAcceso() {
+	fmt.Println()
+	fmt.Println("====================================================")
+	fmt.Println("Modificadores de acceso en funciones y Structs")
+	fmt.Println("====================================================")
+	fmt.Println()
+
+	var myCar pk.Car
+	myCar.Brand = "FORD"
+	myCar.Year = 2020
+	fmt.Println(myCar)
+
 }
