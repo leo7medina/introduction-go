@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"strings"
 )
 
 func main() {
@@ -16,7 +17,8 @@ func main() {
 	// fnCondicionalIf()
 	// fnUsoSwitch()
 	// fnUsoKeyWords()
-	fnUsoArraysAndSlices()
+	// fnUsoArraysAndSlices()
+	fnUsoRecorridoSlicesConRange()
 
 }
 
@@ -371,4 +373,30 @@ func fnUsoArraysAndSlices() {
 	newSlice := []int{12, 13, 14}
 	slice = append(slice, newSlice...)
 	fmt.Println(slice)
+}
+
+func fnUsoRecorridoSlicesConRange() {
+
+	slice := []string{"hola", "que", "haces"}
+	for i := range slice {
+		fmt.Println(i)
+	}
+
+	var palabra string
+	fmt.Scan(&palabra)
+	minus := strings.ToLower(palabra)
+	esPalindromo(minus)
+}
+
+func esPalindromo(text string) {
+	var textReverse string
+	for i := len(text) - 1; i >= 0; i-- {
+		textReverse += string(text[i])
+	}
+
+	if text == textReverse {
+		fmt.Println("Es palindromo")
+	} else {
+		fmt.Println("No es palindromo")
+	}
 }
