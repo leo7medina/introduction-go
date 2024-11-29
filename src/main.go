@@ -18,7 +18,8 @@ func main() {
 	// fnUsoSwitch()
 	// fnUsoKeyWords()
 	// fnUsoArraysAndSlices()
-	fnUsoRecorridoSlicesConRange()
+	// fnUsoRecorridoSlicesConRange()
+	fnLlaveValorConMaps()
 
 }
 
@@ -398,5 +399,50 @@ func esPalindromo(text string) {
 		fmt.Println("Es palindromo")
 	} else {
 		fmt.Println("No es palindromo")
+	}
+}
+
+func fnLlaveValorConMaps() {
+	fmt.Println()
+	fmt.Println("====================================================")
+	fmt.Println("Llave valor con Maps (también llamados diccionarios)")
+	fmt.Println("====================================================")
+	fmt.Println()
+
+	maps := make(map[string]int)
+
+	maps["Jose"] = 14
+	maps["Luis"] = 8
+
+	fmt.Println(maps)
+
+	//Recorrer map
+	recorrerMap(maps)
+
+	//Encontrar un valor
+	fmt.Println("Encontrando valor")
+	v1 := maps["Jose"]
+	v2 := maps["Josep"]
+	// valor, existe
+	v3, ok3 := maps["Jose"]
+	v4, ok4 := maps["Josep"]
+	fmt.Println(v1)
+	fmt.Println(v2)
+	fmt.Println(v3, ok3)
+	fmt.Println(v4, ok4)
+
+	//Declaration
+	var map_1 = map[string]int{
+		"Car":      50000,
+		"House":    20000,
+		"Computer": 1000,
+	}
+	recorrerMap(map_1)
+
+}
+
+func recorrerMap(mapDemo map[string]int) {
+	for key, value := range mapDemo {
+		fmt.Printf("Llave: %s - Valor: %d \n", key, value)
 	}
 }
