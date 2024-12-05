@@ -22,7 +22,8 @@ func main() {
 	// fnUsoRecorridoSlicesConRange()
 	// fnLlaveValorConMaps()
 	// fnUsoStructs()
-	fnUsoModificadoresAcceso()
+	// fnUsoModificadoresAcceso()
+	fnStructAndPunteros()
 
 }
 
@@ -499,4 +500,32 @@ func fnUsoModificadoresAcceso() {
 	myCar.Year = 2020
 	fmt.Println(myCar)
 
+}
+
+func fnStructAndPunteros() {
+	fmt.Println()
+	fmt.Println("====================================================")
+	fmt.Println("Structs y Punteros")
+	fmt.Println("====================================================")
+	fmt.Println()
+
+	a := 50
+	b := &a
+
+	fmt.Println(b)
+	fmt.Println(*b)
+
+	// El "&" accede a la dirección del espacio de memoria de la variable.
+	//"*" accede al valor que contiene ese espacio de memoria, dado el nombre de una variable o una dirección especifica.
+	*b = 100
+	fmt.Println(a)
+
+	myPC := pk.NewPc(16, 200, "msi")
+	fmt.Println(myPC)
+
+	myPC.DuplicateRAM()
+	fmt.Println(myPC)
+
+	myPC.DuplicateRAM()
+	fmt.Println(myPC)
 }
