@@ -21,6 +21,11 @@ func (myPc *Pc) DuplicateRAM() {
 	myPc.ram = myPc.ram * 2
 }
 
+// Stringer
+func (juanito Pc) String() string {
+	return fmt.Sprintf("PC: %s con %dGB RAM y SSD %dGB", juanito.brand, juanito.ram, juanito.disk)
+}
+
 func (myPc Pc) GetRam() int {
 	return myPc.ram
 }

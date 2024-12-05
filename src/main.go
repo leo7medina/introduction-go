@@ -23,7 +23,8 @@ func main() {
 	// fnLlaveValorConMaps()
 	// fnUsoStructs()
 	// fnUsoModificadoresAcceso()
-	fnStructAndPunteros()
+	// fnStructAndPunteros()
+	fnUsoStringers()
 
 }
 
@@ -528,4 +529,10 @@ func fnStructAndPunteros() {
 
 	myPC.DuplicateRAM()
 	fmt.Println(myPC)
+}
+
+func fnUsoStringers() {
+	myPC := pk.NewPc(16, 200, "msi")
+	fmt.Println(myPC)
+	fmt.Printf("%+v", myPC) // resultado=> {ram:16 disk:200 brand:msi}%
 }
