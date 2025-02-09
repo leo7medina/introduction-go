@@ -11,50 +11,144 @@ import (
 )
 
 func main() {
+	menu()
+}
 
-	fnDeclaracionesVariables()
+func menu() {
+	fmt.Println("")
+	fmt.Println("")
+	fmt.Println("")
+	fmt.Println("---------BIENVENIDO AL CURSO INTRODUCTORIO DE GO------------")
+	fmt.Println("")
+	fmt.Println("")
+	fmt.Println("VARIABLES, FUNCIONES Y DOCUMENTACION")
+	fmt.Println("1.- Declaraciones y variables")
+	fmt.Println("2.- Operadores aritmeticos")
+	fmt.Println("3.- Tipos datos primitivos")
+	fmt.Println("4.- Paquete FMT")
+	fmt.Println("5.- Funciones")
+	fmt.Println("ESTRUCTURAS DE CONTROL DE FLUJO Y CONDICIONALES")
+	fmt.Println("6.- Ciclos")
+	fmt.Println("7.- Condicional IF")
+	fmt.Println("8.- Switch")
+	fmt.Println("9.- Keywords")
+	fmt.Println("ESTRUCTURAS DE DATOS BASICOS")
+	fmt.Println("10.- Arrays y Slices")
+	fmt.Println("11.- Recorrido de Slices con Range")
+	fmt.Println("12.- Llave valor con Maps")
+	fmt.Println("13.- Strucs: La forma de hacer clases en Go")
+	fmt.Println("14.- Modificadores de acceso en funciones y Structs")
+	fmt.Println("METODOS E INTERFACES")
+	fmt.Println("15.- Structs y Punteros")
+	fmt.Println("16.- Stringers: personalizar el output de Structs")
+	fmt.Println("17.- Interfaces y listas de interfaces")
+	fmt.Println("CONCURRENCIA Y CHANNELS")
+	fmt.Println("18.- Primer contacto con las Goroutines")
+	fmt.Println("19.- Channels: La forma de organizar las goroutines")
+	fmt.Println("20.- Range, Close y Select en channels")
+	fmt.Println("MANEJO DE PAQUETES Y GO MODULES")
+	fmt.Println("21.- Salir")
+
+	//fnDeclaracionesVariables()
 	// fnOperacionesAritmeticas()
 	// fnTiposDatosPrimitivos()
 	// fnPaqueteFmt()
 	// fnUsoFunciones()
+
 	// fnUsoCiclos()
 	// fnCondicionalIf()
 	// fnUsoSwitch()
 	// fnUsoKeyWords()
+
 	// fnUsoArraysAndSlices()
 	// fnUsoRecorridoSlicesConRange()
 	// fnLlaveValorConMaps()
 	// fnUsoStructs()
 	// fnUsoModificadoresAcceso()
+
 	// fnStructAndPunteros()
 	// fnUsoStringers()
 	// fnUsoInterfacesYlistas()
-	//fnUsoGoroutines()
-	//fnUsoChannels()
+
+	// fnUsoGoroutines()
+	// fnUsoChannels()
+	// fnUsoRangeCloseSelectInChannels()
+	fmt.Println("")
+	fmt.Println("")
+	fmt.Println("Ingresa una opcion: ")
+	var option int
+	fmt.Scan(&option)
+
+	switch option {
+	case 1:
+		fnDeclaracionesVariables()
+		menu()
+	case 2:
+		fnOperacionesAritmeticas()
+		menu()
+	case 3:
+		fnTiposDatosPrimitivos()
+		menu()
+	case 4:
+		fnPaqueteFmt()
+		menu()
+	case 5:
+		fnUsoFunciones()
+		menu()
+	case 6:
+		fnUsoCiclos()
+		menu()
+	case 7:
+		fnCondicionalIf()
+		menu()
+	case 8:
+		fnUsoSwitch()
+		menu()
+	case 9:
+		fnUsoKeyWords()
+		menu()
+	case 10:
+		fnUsoArraysAndSlices()
+		menu()
+	case 11:
+		fnUsoRecorridoSlicesConRange()
+		menu()
+	case 12:
+		fnLlaveValorConMaps()
+		menu()
+	case 13:
+		fnUsoStructs()
+		menu()
+	case 14:
+		fnUsoModificadoresAcceso()
+		menu()
+	case 15:
+		fnStructAndPunteros()
+		menu()
+	case 16:
+		fnUsoStringers()
+		menu()
+	case 17:
+		fnUsoInterfacesYlistas()
+		menu()
+	case 18:
+		fnUsoGoroutines()
+		menu()
+	case 19:
+		fnUsoChannels()
+		menu()
+	case 20:
+		fnUsoRangeCloseSelectInChannels()
+		menu()
+	case 21:
+		fmt.Println("Nos vemos...")
+		fmt.Println("FIN")
+	default:
+		fmt.Println("")
+		fmt.Println("Nos vemos...")
+	}
 
 }
-
-// func menu() {
-// 	fmt.Println()
-// 	fmt.Println()
-
-// 	var option int
-// 	fmt.Scan(&option)
-
-// 	switch option {
-// 	case 1:
-// 		conta++
-// 	case 2:
-// 		conte++
-// 	case 3:
-// 		conti++
-// 	case 5:
-// 		conto++
-// 	case 0:
-// 		fmt.Println("FIN")
-// 	}
-
-// }
 
 func fnDeclaracionesVariables() {
 	fmt.Println()
@@ -87,8 +181,11 @@ func fnDeclaracionesVariables() {
 }
 
 func fnOperacionesAritmeticas() {
-	fmt.Println("")
+	fmt.Println()
+	fmt.Println("====================================================")
 	fmt.Println("OPERADORES ARITMETICOS")
+	fmt.Println("====================================================")
+	fmt.Println()
 
 	//Area cuadrado
 	const baseCuadrado = 10
@@ -125,6 +222,11 @@ func fnOperacionesAritmeticas() {
 }
 
 func fnTiposDatosPrimitivos() {
+	fmt.Println()
+	fmt.Println("====================================================")
+	fmt.Println("Tipos de datos primitivos")
+	fmt.Println("====================================================")
+	fmt.Println()
 	//Numeros enteros
 	//int = Depende del OS (32 o 64 bits)
 	//int8 = 8bits = -128 a 127
@@ -154,8 +256,12 @@ func fnTiposDatosPrimitivos() {
 }
 
 func fnPaqueteFmt() {
-	fmt.Println("")
-	fmt.Println("USO PAQUETE FMT")
+
+	fmt.Println()
+	fmt.Println("====================================================")
+	fmt.Println("Paquete FMT")
+	fmt.Println("====================================================")
+	fmt.Println()
 
 	helloMessage := "Hello"
 	worldMessage := "world"
@@ -182,8 +288,12 @@ func fnPaqueteFmt() {
 }
 
 func fnUsoFunciones() {
-	fmt.Println("")
-	fmt.Println("USO FUNCIONES")
+	fmt.Println()
+	fmt.Println("====================================================")
+	fmt.Println("Uso Funciones")
+	fmt.Println("====================================================")
+	fmt.Println()
+
 	fmt.Printf("Circulo %.2f \n", areaCirculo(2))
 	fmt.Printf("Rectangulo %.2f \n", areaRectangulo(5, 10))
 	fmt.Printf("Trapezoide %.2f \n", areaTrapezoide(10, 5, 3))
@@ -201,6 +311,12 @@ func areaTrapezoide(B float64, b float64, h float64) float64 {
 }
 
 func fnUsoCiclos() {
+	fmt.Println()
+	fmt.Println("====================================================")
+	fmt.Println("Ciclos: For condicional, For while, For forever, For Range, functions, tags")
+	fmt.Println("====================================================")
+	fmt.Println()
+
 	fmt.Println("")
 	fmt.Println("CICLOS")
 
@@ -306,8 +422,12 @@ func condicion(i int) bool {
 }
 
 func fnCondicionalIf() {
-	fmt.Println("")
-	fmt.Println("CONDICIONAL IF")
+	fmt.Println()
+	fmt.Println("====================================================")
+	fmt.Println("Condicional If")
+	fmt.Println("====================================================")
+	fmt.Println()
+
 	parOImpar(13)
 	parOImpar(10)
 
@@ -332,8 +452,11 @@ func validateUser(user string, password string) {
 }
 
 func fnUsoSwitch() {
-	fmt.Println("")
-	fmt.Println("USO SWITCH")
+	fmt.Println()
+	fmt.Println("====================================================")
+	fmt.Println("Uso Switch")
+	fmt.Println("====================================================")
+	fmt.Println()
 
 	palabra := "en platzi nunca paramos de aprender"
 	a, e, i, o, u := contadorVocales(palabra)
@@ -370,6 +493,11 @@ func contadorVocales(palabra string) (int, int, int, int, int) {
 }
 
 func fnUsoKeyWords() {
+	fmt.Println()
+	fmt.Println("====================================================")
+	fmt.Println("Keyworks")
+	fmt.Println("====================================================")
+	fmt.Println()
 	// Continue y break
 	for i := 0; i < 10; i++ {
 		fmt.Println(i)
@@ -387,6 +515,11 @@ func fnUsoKeyWords() {
 }
 
 func fnUsoArraysAndSlices() {
+	fmt.Println()
+	fmt.Println("====================================================")
+	fmt.Println("Arrays and Slices")
+	fmt.Println("====================================================")
+	fmt.Println()
 	// Array  (son inmutables)
 	var array [4]int
 	array[0] = 1
@@ -414,12 +547,18 @@ func fnUsoArraysAndSlices() {
 }
 
 func fnUsoRecorridoSlicesConRange() {
+	fmt.Println()
+	fmt.Println("====================================================")
+	fmt.Println("Recorrido slices con range")
+	fmt.Println("====================================================")
+	fmt.Println()
 
 	slice := []string{"hola", "que", "haces"}
 	for i := range slice {
 		fmt.Println(i)
 	}
 
+	fmt.Println("Ingrese palaba: ")
 	var palabra string
 	fmt.Scan(&palabra)
 	minus := strings.ToLower(palabra)
@@ -695,4 +834,48 @@ func printChannelOutput(c <-chan string) {
 	var output string
 	output = <-c
 	fmt.Println(output)
+}
+
+func fnUsoRangeCloseSelectInChannels() {
+	fmt.Println()
+	fmt.Println("====================================================")
+	fmt.Println("Range, Close y Select en channels")
+	fmt.Println("====================================================")
+	fmt.Println()
+
+	c := make(chan string, 2)
+	c <- "Mensaje 1"
+	c <- "Mensaje 2"
+
+	fmt.Println(len(c), cap(c))
+
+	//Range y close
+	close(c)
+
+	// c <- "Mensaje 3"  // ya no es posible ya que se establecio un maximo de 2;
+
+	for message := range c {
+		fmt.Println(message)
+	}
+
+	//Select
+	email1 := make(chan string)
+	email2 := make(chan string)
+
+	go message("Mensaje 1", email1)
+	go message("Mensaje 2", email2)
+
+	for i := 0; i < 2; i++ {
+		select {
+		case m1 := <-email1:
+			fmt.Println("Email recibido de email1", m1)
+		case m2 := <-email2:
+			fmt.Println("Email recibido de email2", m2)
+		}
+	}
+
+}
+
+func message(text string, c chan string) {
+	c <- text
 }
