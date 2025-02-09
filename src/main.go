@@ -6,11 +6,13 @@ import (
 	"math"
 	"reflect"
 	"strings"
+	"sync"
+	"time"
 )
 
 func main() {
 
-	// fnDeclaracionesVariables()
+	fnDeclaracionesVariables()
 	// fnOperacionesAritmeticas()
 	// fnTiposDatosPrimitivos()
 	// fnPaqueteFmt()
@@ -26,12 +28,40 @@ func main() {
 	// fnUsoModificadoresAcceso()
 	// fnStructAndPunteros()
 	// fnUsoStringers()
-	fnUsoInterfacesYlistas()
+	// fnUsoInterfacesYlistas()
+	//fnUsoGoroutines()
+	//fnUsoChannels()
 
 }
 
+// func menu() {
+// 	fmt.Println()
+// 	fmt.Println()
+
+// 	var option int
+// 	fmt.Scan(&option)
+
+// 	switch option {
+// 	case 1:
+// 		conta++
+// 	case 2:
+// 		conte++
+// 	case 3:
+// 		conti++
+// 	case 5:
+// 		conto++
+// 	case 0:
+// 		fmt.Println("FIN")
+// 	}
+
+// }
+
 func fnDeclaracionesVariables() {
+	fmt.Println()
+	fmt.Println("====================================================")
 	fmt.Println("DECLARACION VARIABLES, CONSTANTES, ZERO VALUES")
+	fmt.Println("====================================================")
+	fmt.Println()
 	//Delcaracion de contstantes
 	const message string = "Hola Mundo, Go pal mundo...!"
 	const pi float64 = 3.14
@@ -603,4 +633,66 @@ func fnUsoInterfacesYlistas() {
 	calculateArea(myTrapezoid)
 	calculateArea(myCircle)
 
+}
+
+func say(text string, wg *sync.WaitGroup) { // Gorutine
+
+	defer wg.Done() // Esta linea se va a ejecutar hasta el final de la funcion, y de esta forma libera el gorutine del WaitGroup
+
+	fmt.Println(text)
+}
+
+func fnUsoGoroutines() {
+
+	fmt.Println()
+	fmt.Println("====================================================")
+	fmt.Println("Uso Goroutines")
+	fmt.Println("====================================================")
+	fmt.Println()
+
+	var wg sync.WaitGroup // El paquete sync permite interacturar de forma primitiva con las gorutine. Variable que acomula un conjunto de gorutines y los va liberando poco a poco
+
+	fmt.Println("Hello")
+
+	wg.Add(1) // Indicamos que vamos a agregar 1 Gorutine al WaitGroup para que espere su ejecucion antes de que la gurutine base (main) muera, y así le de tiempo a la siguiente gorutine de ejecutarse
+
+	go say("world", &wg) // la palabra reservada go ejecutará la funcion de forma concurrente
+
+	wg.Wait() // Funcion del WaitGroup que sirve para decirle al gorutine principal (main) que espere hasta que todas las gorutine del WaitGroup finalicen, es decir, hasta que se ejecute 'defer wg.Done()' en cada una de las goroutines
+
+	go func(text string) { // Funciona anonima
+		fmt.Println(text)
+	}("Adios")
+
+	time.Sleep(time.Second * 1) // ! Funcion para que cuando llegue a esta linea espere el tiempo indicado (lo suficiente para que la Gorutine ejecute su funcion de forma concurrente)
+
+	// Nota: Para fines practicos se hace uso de la funcion Sleep(), pero en realidad NO es una buena practica, es mejor utilizar los WaitGroups
+}
+
+func fnUsoChannels() {
+	fmt.Println()
+	fmt.Println("====================================================")
+	fmt.Println("Channels: La forma de organizar tus goroutines")
+	fmt.Println("====================================================")
+	fmt.Println()
+	// c := make(chan string) // dinamically accepts goroutines
+	c := make(chan string, 1) // one goroutine at time
+
+	fmt.Printf("Hello")
+
+	go say2("Bye", c)
+
+	printChannelOutput(c)
+}
+
+func say2(text string, c chan<- string) {
+	// canal de entrada de datos
+	c <- text
+}
+
+func printChannelOutput(c <-chan string) {
+	// canal de salida de datos
+	var output string
+	output = <-c
+	fmt.Println(output)
 }
